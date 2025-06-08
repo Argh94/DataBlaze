@@ -1,0 +1,242 @@
+/* پایه */
+body {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #e0e0e0;
+    background: linear-gradient(135deg, #1a1b23 0%, #2a2b38 100%);
+    overflow-x: hidden;
+    direction: rtl;
+    text-align: right;
+    font-family: Yekan;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* تم روشن */
+body.light-theme {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    color: #333;
+}
+body.light-theme .content {
+    background: #ffffff;
+    box-shadow: 0px 4px 12px -3px #ccc;
+}
+body.light-theme .form-group select,
+body.light-theme .form-group input {
+    background: #f0f0f0;
+    color: #333 !important;
+    border: 1px solid #ccc;
+}
+body.light-theme .form-group select:focus,
+body.light-theme .form-group input:focus {
+    background: #e8e8e8;
+    border: 1px solid #4a90e2;
+    box-shadow: 0 0 0 0.25rem rgba(74, 144, 226, 0.1);
+}
+body.light-theme .note > div {
+    background: #f0f0f0;
+    border: 2px solid #ccc;
+}
+body.light-theme .link {
+    color: #333;
+}
+body.light-theme .link:hover {
+    color: #4a90e2;
+}
+
+/* فوتر */
+footer {
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+footer > div {
+    margin: 0 20px;
+    padding: 10px;
+    background: #2a2b38;
+    border-top: 2px solid #3a3b4b;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0px 8px 13px -1px #1f2029 inset;
+}
+body.light-theme footer > div {
+    background: #e0e0e0;
+    border-top: 2px solid #ccc;
+    box-shadow: 0px 8px 13px -1px #ccc inset;
+}
+
+/* دکمه‌ها */
+.btn {
+    width: 100%;
+    font-size: 15px;
+    border-radius: 8px;
+    height: 44px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 200ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.btn-primary {
+    background: linear-gradient(135deg, #ffd700 0%, #ffac33 100%);
+    color: #1a1b23;
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ffac33 0%, #ffd700 100%);
+    transform: scale(1.05);
+}
+.btn-primary:active {
+    transform: scale(0.95);
+}
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    color: #e0e0e0;
+}
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #495057 0%, #6c757d 100%);
+    transform: scale(1.05);
+}
+.btn-secondary:active {
+    transform: scale(0.95);
+}
+body.light-theme .btn-primary {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: #fff;
+}
+body.light-theme .btn-primary:hover {
+    background: linear-gradient(135deg, #357abd 0%, #4a90e2 100%);
+}
+body.light-theme .btn-secondary {
+    background: linear-gradient(135deg, #adb5bd 0%, #868e96 100%);
+    color: #333;
+}
+body.light-theme .btn-secondary:hover {
+    background: linear-gradient(135deg, #868e96 0%, #adb5bd 100%);
+}
+
+/* دکمه تغییر تم */
+.btn-theme {
+    width: auto;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffac33 100%);
+    color: #1a1b23;
+}
+body.light-theme .btn-theme {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: #fff;
+}
+.theme-icon .sun {
+    display: block;
+}
+.theme-icon .moon {
+    display: none;
+}
+body.light-theme .theme-icon .sun {
+    display: none;
+}
+body.light-theme .theme-icon .moon {
+    display: block;
+}
+
+/* محتوا */
+.content {
+    width: 100%;
+    height: fit-content;
+    background: #2a2b38;
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 300%;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0px 4px 12px -3px #15161c;
+    animation: fadeIn 0.5s ease;
+}
+
+/* انیمیشن‌ها */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+#result {
+    transition: opacity 0.5s ease;
+}
+#result.fade-in {
+    opacity: 1;
+}
+
+/* فرم‌ها */
+.note > div {
+    background: #1f2029;
+    padding: 25px 10px;
+    border: 2px solid #34364b;
+    border-radius: 7px;
+    font-size: 20px;
+}
+.form-group > label {
+    text-indent: 15px;
+}
+.form-group select,
+.form-group input {
+    background: #1f2029;
+    border-radius: 7px;
+    color: #e0e0e0 !important;
+    padding: 10px 15px;
+    margin-top: 6px;
+    border: 1px solid #34364b;
+}
+.form-group select:focus,
+.form-group input:focus {
+    background: #1f2029ad;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.2);
+    border: 1px solid #ffd700;
+}
+.container-btn {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* ریسپانسیو */
+@media (max-width: 575px) {
+    body > div.container {
+        margin: 15px;
+    }
+    .content {
+        padding: 20px;
+    }
+    .container-btn {
+        flex-direction: column;
+    }
+    .container-btn > button {
+        margin: 5px 0;
+    }
+    .form-group > label {
+        font-size: 14px;
+    }
+    .form-group select,
+    .form-group input {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    .note > div {
+        font-size: 16px;
+    }
+}
+@media (min-width: 576px) {
+    body > div.container {
+        margin-top: 20px;
+    }
+    .content > h1 > br {
+        display: none;
+    }
+    .container-btn > button {
+        width: 45%;
+    }
+  }
