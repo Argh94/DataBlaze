@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataBlaze - محاسبه حجم دانلود</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container content">
+        <div class="theme-switch-wrapper">
+            <div class="theme-switch">
+                <div class="theme-switch-circle">
+                    <svg class="theme-icon sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg class="theme-icon moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <h1 class="text-center">محاسبه<br> حجم دانلود / پهنای باند</h1>
+        <div id="form-container">
+            <form id="downloadForm" class="mt-4">
+                <div class="form-group mt-3">
+                    <label for="speed">سرعت:</label>
+                    <select id="speed" name="speed" class="form-control" required>
+                        <option value="0.05">50 مگابیت بر ثانیه</option>
+                        <option value="0.1">100 مگابیت بر ثانیه</option>
+                        <option value="0.2">200 مگابیت بر ثانیه</option>
+                        <option value="0.5">500 مگابیت بر ثانیه</option>
+                        <option value="1">1 گیگابیت بر ثانیه</option>
+                        <option value="2">2 گیگابیت بر ثانیه</option>
+                        <option value="5">5 گیگابیت بر ثانیه</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="days">تعداد روزها:</label>
+                    <input type="number" id="days" name="days" class="form-control" required>
+                </div>
+                <div class="container container-btn p-0">
+                    <button type="submit" class="mt-3 btn btn-primary">محاسبه</button>
+                    <button id="switchToSpeedForm" class="mt-3 btn btn-secondary">تبدیل به [ محاسبه پهنای باند ]</button>    
+                </div>
+            </form>
+            <hr class="m-4">
+        </div>
+        <div id="speedFormContainer" class="d-none mt-4">
+            <form id="speedForm">
+                <div class="form-group mt-3">
+                    <label for="data">حجم داده (ترابایت):</label>
+                    <input type="number" id="data" name="data" class="form-control" required>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="daysForSpeed">تعداد روزها:</label>
+                    <input type="number" id="daysForSpeed" name="daysForSpeed" class="form-control" required>
+                </div>
+                <div class="container container-btn p-0">
+                    <button type="submit" class="mt-3 btn btn-primary">محاسبه</button>
+                    <button id="switchToDownloadForm" class="mt-3 btn btn-secondary">تبدیل به [ محاسبه حجم ]</button>
+                </div>
+            </form>
+            <hr class="m-4">
+        </div>
+        <div class="note container dw-alert mt-3 p-0">
+            <div class="text-center" role="alert">
+                <span id="result" class="mt-4">لطفاً محاسبه را شروع کنید</span>
+            </div>
+        </div>
+        <div class="mt-4">
+            <canvas id="downloadChart"></canvas>
+        </div>
+    </div>
+    <footer>
+        <div>طراحی و توسعه توسط <a href="https://github.com/Argh94" target="_blank" class="link" rel="noopener noreferrer">Argh94
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-.62 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+        </a></div>
+    </footer>
+    <script src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
